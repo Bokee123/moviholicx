@@ -886,6 +886,7 @@ html, body {
 
 .navbar a:hover {
   color: #161616;
+  background: #808080;
 }
 
 .spacer {
