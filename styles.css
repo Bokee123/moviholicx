@@ -917,7 +917,7 @@ html, body {
   color: white;
   background-color: #808080;
   border-radius: 30px;
-  
+   text-decoration: none;
 }
 
 /* Hamburger Menu (Mobile) */
