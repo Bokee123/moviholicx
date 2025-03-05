@@ -348,33 +348,23 @@ function openMovieModal(movieId) {
       `;
 
       // Update modal content
-     <h3>NOW PLAYING: ${movie.title}</h3>
-
-    modalPlayer.innerHTML = `
-      <h3>NOW PLAYING: ${movie.title}</h3>
-      <iframe src="${MOVIE_ENDPOINTS[0]}${movieId}" frameborder="0" allowfullscreen id="movie-player"></iframe>
-`;
-          
-      
-      
-      <h4>Select Server</h4>
-        <select id="server-select" class="server-select">
-          ${MOVIE_ENDPOINTS.map((endpoint, index) => `<option value="${endpoint}">Server ${index + 1}</option>`).join('')}
-        </select>
-        
-      <!-- Server Switch Message with Notification Icon -->
-    <div id="server-switch-message" class="server-switch-message">
-      <i class="fas fa-exclamation-triangle"></i>
-      <span>Please switch to other servers if default server doesn't work.</span>
-    </div>
-      <h3>${movie.title}</h3>
+      modalPlayer.innerHTML = `
+        <h3>${movie.title}</h3>
         <p>${movie.overview}</p>
         <p><strong>Release Date:</strong> ${movie.release_date}</p>
         <p><strong>IMDb Rating:</strong> ${movie.vote_average}</p>
 
-          
+          <!-- Server Switch Message with Notification Icon -->
+    <div id="server-switch-message" class="server-switch-message">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>Please switch to other servers if default server doesn't work.</span>
+    </div>
         
-      
+        <h3>Select Server</h3>
+        <select id="server-select" class="server-select">
+          ${MOVIE_ENDPOINTS.map((endpoint, index) => `<option value="${endpoint}">Server ${index + 1}</option>`).join('')}
+        </select>
+        <iframe src="${MOVIE_ENDPOINTS[0]}${movieId}" frameborder="0" allowfullscreen id="movie-player"></iframe>
         
         <!-- Cast Section - Below the movie player -->
         <h3>Cast</h3>
@@ -398,18 +388,13 @@ function openMovieModal(movieId) {
 
 function openSeriesModal(seriesId) {
   modalPlayer.innerHTML = `
-    <h3 id="series-title">Now Playing: [Series Title]</h3>
-
-   <div id="season-dropdown-container" class="season-dropdown-container">
+    <h3 id="series-title"></h3>
+    <p id="series-description"></p>
+    
+    <div id="season-dropdown-container" class="season-dropdown-container">
       <label for="season-select">Choose Season:</label>
       <select id="season-select" class="season-select"></select>
     </div>
- 
-
-     <div id="player-container" class="player-container">
-      <iframe src="" frameborder="0" allowfullscreen id="episode-player"></iframe>
-    </div>
-
 
     <!-- Server Switch Message with Notification Icon -->
     <div id="server-switch-message" class="server-switch-message">
@@ -424,16 +409,15 @@ function openSeriesModal(seriesId) {
       </select>
     </div>
 
-    <h3 id="series-title"></h3>
-    <p id="series-description"></p>
-    
-    
+    <div id="player-container" class="player-container">
+      <iframe src="" frameborder="0" allowfullscreen id="episode-player"></iframe>
+    </div>
 
     <!-- Cast Section - Below the episode player -->
     <h3>Cast</h3>
     <div id="actor-carousel" class="actor-carousel"></div>
 
-    
+    <div id="episode-list" class="episode-list"></div>
   `;
 
   const seasonSelect = document.getElementById('season-select');
@@ -484,7 +468,6 @@ function playEpisode(seriesId, seasonNumber, episodeNumber) {
 
   iframe.src = `${serverSelect.value}${seriesId}/${seasonNumber}/${episodeNumber}`;
   playerContainer.classList.remove('hidden');
-  
 }
 
 function fetchEpisodes(seriesId, seasonNumber) {
