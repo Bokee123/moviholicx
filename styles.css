@@ -914,8 +914,9 @@ html, body {
 }
 
 .navbar-links a:hover {
-  color: #000000;
+  color: white;
   background-color: #808080;
+  border-radius: 30px;
   
 }
 
