@@ -405,15 +405,13 @@ function openSeriesModal(seriesId) {
   <div id="player-container" class="player-container">
       <iframe src="" frameborder="0" allowfullscreen id="episode-player"></iframe>
     </div>
+
+    
      <!-- Server Switch Message with Notification Icon -->
     <div id="server-switch-message" class="server-switch-message">
       <i class="fas fa-exclamation-triangle"></i>
       <span>Please switch to other servers if default server doesn't work.</span>
     </div>
-
-    
-   
-   
     <div id="server-dropdown-container" class="server-dropdown-container">
       <label for="server-select">Change Server:</label>
       <select id="server-select" class="server-select">
