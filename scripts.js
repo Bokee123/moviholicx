@@ -349,12 +349,12 @@ function openMovieModal(movieId) {
 
       // Update modal content
       modalPlayer.innerHTML = `
-        <h3>${movie.title}</h3>
-        <p>${movie.overview}</p>
-        <p><strong>Release Date:</strong> ${movie.release_date}</p>
-        <p><strong>IMDb Rating:</strong> ${movie.vote_average}</p>
+        <h2>NOW PLAYING: ${movie.title}</h2>
+        <iframe src="${MOVIE_ENDPOINTS[0]}${movieId}" frameborder="0" allowfullscreen id="movie-player"></iframe>
+        ${MOVIE_ENDPOINTS.map((endpoint, index) => `<option value="${endpoint}">Server ${index + 1}</option>`).join('')}
 
-          <!-- Server Switch Message with Notification Icon -->
+
+        <!-- Server Switch Message with Notification Icon -->
     <div id="server-switch-message" class="server-switch-message">
       <i class="fas fa-exclamation-triangle"></i>
       <span>Please switch to other servers if default server doesn't work.</span>
@@ -362,9 +362,16 @@ function openMovieModal(movieId) {
         
         <h3>Select Server</h3>
         <select id="server-select" class="server-select">
-          ${MOVIE_ENDPOINTS.map((endpoint, index) => `<option value="${endpoint}">Server ${index + 1}</option>`).join('')}
+     
         </select>
-        <iframe src="${MOVIE_ENDPOINTS[0]}${movieId}" frameborder="0" allowfullscreen id="movie-player"></iframe>
+        
+        <h3>${movie.title}</h3>
+        <p>${movie.overview}</p>
+        <p><strong>Release Date:</strong> ${movie.release_date}</p>
+        <p><strong>IMDb Rating:</strong> ${movie.vote_average}</p>
+
+          
+       
         
         <!-- Cast Section - Below the movie player -->
         <h3>Cast</h3>
@@ -388,20 +395,26 @@ function openMovieModal(movieId) {
 
 function openSeriesModal(seriesId) {
   modalPlayer.innerHTML = `
-    <h3 id="series-title"></h3>
-    <p id="series-description"></p>
-    
-    <div id="season-dropdown-container" class="season-dropdown-container">
+
+  <h2 id="series-title"></h2>
+
+   <div id="season-dropdown-container" class="season-dropdown-container">
       <label for="season-select">Choose Season:</label>
       <select id="season-select" class="season-select"></select>
     </div>
-
-    <!-- Server Switch Message with Notification Icon -->
+  <div id="player-container" class="player-container">
+      <iframe src="" frameborder="0" allowfullscreen id="episode-player"></iframe>
+    </div>
+     <!-- Server Switch Message with Notification Icon -->
     <div id="server-switch-message" class="server-switch-message">
       <i class="fas fa-exclamation-triangle"></i>
       <span>Please switch to other servers if default server doesn't work.</span>
     </div>
 
+    <h3 id="series-title"></h3>
+    <p id="series-description"></p>
+   
+   
     <div id="server-dropdown-container" class="server-dropdown-container">
       <label for="server-select">Change Server:</label>
       <select id="server-select" class="server-select">
@@ -409,9 +422,7 @@ function openSeriesModal(seriesId) {
       </select>
     </div>
 
-    <div id="player-container" class="player-container">
-      <iframe src="" frameborder="0" allowfullscreen id="episode-player"></iframe>
-    </div>
+   
 
     <!-- Cast Section - Below the episode player -->
     <h3>Cast</h3>
