@@ -350,7 +350,7 @@ function openMovieModal(movieId) {
       // Update modal content
      <h3>NOW PLAYING: ${movie.title}</h3>
 
-    modalPlayer.innerHTML = 
+    modalPlayer.innerHTML = `
       <h3>NOW PLAYING: ${movie.title}</h3>
       <iframe src="${MOVIE_ENDPOINTS[0]}${movieId}" frameborder="0" allowfullscreen id="movie-player"></iframe>
 `;
