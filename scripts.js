@@ -350,19 +350,9 @@ function openMovieModal(movieId) {
       // Update modal content
      <h3>NOW PLAYING: ${movie.title}</h3>
 
-    <!-- Adsterra Ad (Popup on Movie Start) -->
-    <script>
-        window.open("https://www.effectiveratecpm.com/p7vicu2q?key=d3c5ce46b3224bf7c62ad908e9a549cb", "_blank");
-    </script>
-
-    <!-- Ad Banner Before Video -->
-    <div class="ad-container" style="text-align: center; margin-bottom: 10px;">
-        <iframe src="https://www.effectiveratecpm.com/p7vicu2q?key=d3c5ce46b3224bf7c62ad908e9a549cb" 
-            width="300" height="250" frameborder="0"></iframe>
-    </div>
-
-    <!-- Movie Player -->
-    <iframe src="${MOVIE_ENDPOINTS[0]}${movieId}" frameborder="0" allowfullscreen id="movie-player"></iframe>
+    modalPlayer.innerHTML = 
+      <h3>NOW PLAYING: ${movie.title}</h3>
+      <iframe src="${MOVIE_ENDPOINTS[0]}${movieId}" frameborder="0" allowfullscreen id="movie-player"></iframe>
 `;
           
       
