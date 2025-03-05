@@ -351,17 +351,17 @@ function openMovieModal(movieId) {
       modalPlayer.innerHTML = `
         <h2>NOW PLAYING: ${movie.title}</h2>
         <iframe src="${MOVIE_ENDPOINTS[0]}${movieId}" frameborder="0" allowfullscreen id="movie-player"></iframe>
-        ${MOVIE_ENDPOINTS.map((endpoint, index) => `<option value="${endpoint}">Server ${index + 1}</option>`).join('')}
-
+      
 
         <!-- Server Switch Message with Notification Icon -->
     <div id="server-switch-message" class="server-switch-message">
       <i class="fas fa-exclamation-triangle"></i>
       <span>Please switch to other servers if default server doesn't work.</span>
-    </div>
-        
+    </div
         <h3>Select Server</h3>
         <select id="server-select" class="server-select">
+       ${MOVIE_ENDPOINTS.map((endpoint, index) => `<option value="${endpoint}">Server ${index + 1}</option>`).join('')}
+
      
         </select>
         
@@ -411,8 +411,7 @@ function openSeriesModal(seriesId) {
       <span>Please switch to other servers if default server doesn't work.</span>
     </div>
 
-    <h3 id="series-title"></h3>
-    <p id="series-description"></p>
+    
    
    
     <div id="server-dropdown-container" class="server-dropdown-container">
@@ -422,7 +421,8 @@ function openSeriesModal(seriesId) {
       </select>
     </div>
 
-   
+   <h3 id="series-title"></h3>
+    <p id="series-description"></p>
 
     <!-- Cast Section - Below the episode player -->
     <h3>Cast</h3>
