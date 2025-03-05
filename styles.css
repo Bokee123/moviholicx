@@ -915,6 +915,8 @@ html, body {
 
 .navbar-links a:hover {
   color: #000000;
+  background-color: #808080;
+  
 }
 
 /* Hamburger Menu (Mobile) */
